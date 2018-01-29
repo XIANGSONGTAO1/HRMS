@@ -24,9 +24,7 @@
                     管理员：<input type="radio" type="radio" name="identity" value="admin"><br>
         <input type="submit" value="登录"><input type="reset"><br>
         <a href="WEB-INF/pages/visitorRegist.jsp">游客注册</a>
-
     </form>
 </div>
-
 </body>
 </html>

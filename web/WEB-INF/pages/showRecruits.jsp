@@ -1,8 +1,9 @@
+<%@ taglib prefix="for" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/1/26
-  Time: 16:57
+  Date: 2018/1/29
+  Time: 8:48
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,23 +15,18 @@
 <head>
     <base href="<%=basePath%>"/>
     <title></title>
-    <script src="js/jquery-3.1.0.js"></script>
-    <script>
-        $(function () {
-            $.ajax({
-
-            })
-        })
-    </script>
 </head>
 <body>
-    <div>
-        <form action="/visitorRegist">
-            <input name="username" id=""><br>
-            <input name="password"><br>
-            <input name="password2"><br><br>
-            <input type="submit" value="注册">
-        </form>
-    </div>
+    <table>
+        <for:forEach items="${sessionScope.recruits}" var="r">
+            <tr>
+                <td>${r.getDept().getName()}</td>
+                <td>${r.getPosition().getName()}</td>
+                <td>${r.getDesc()}</td>
+                <td>${r.getSalary()}</td>
+            </tr>
+        </for:forEach>
+    </table>
+
 </body>
 </html>
