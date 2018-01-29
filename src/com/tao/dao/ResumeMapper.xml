@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.dao.ResumeMapper">
+
+    <insert id="addResume">
+        insert into resume (r_name,r_sex,r_age,r_educationlevel,r_school,r_major
+        r_nation,r_tel,r_jobintention,r_skills,r_workexperience,r_selfvaluation,r_email,r_staus)VALUES ()
+    </insert>
+    <select id="getAll" resultType="com.tao.model.Resume"></select>
+</mapper>

@@ -17,8 +17,16 @@
     <script src="js/jquery-3.1.0.js"></script>
     <script>
         $(function () {
-            $.ajax({
-
+            $("#i1").click(function () {
+                $.ajax({
+                    type:"post",
+                    url:"checkName",
+                    data:"name="+$("#i1").val(),
+                    success:function (data) {
+                        $("#sp1").html(data);
+                        $("#sp1").color("red")
+                    }
+                })
             })
         })
     </script>
@@ -26,7 +34,7 @@
 <body>
     <div>
         <form action="/visitorRegist">
-            <input name="username" id=""><br>
+            <input name="username" id="i1"><span id="sp1"></span><br>
             <input name="password"><br>
             <input name="password2"><br><br>
             <input type="submit" value="注册">

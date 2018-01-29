@@ -11,6 +11,7 @@ public class Resume implements Serializable {
     private String selfevaluation;
     private String email;
     private Visitor visitor;
+    private int status;
 
     public Resume() {
     }

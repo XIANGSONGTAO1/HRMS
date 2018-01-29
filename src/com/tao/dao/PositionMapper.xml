@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.dao.PositionMapper">
+
+    <select id="getAllByDid" resultType="com.tao.model.Position">
+        select p_id id,p_name p_name,p_salary salary ,d_id d_id where d_id=#{dept.id}
+    </select>
+</mapper>
