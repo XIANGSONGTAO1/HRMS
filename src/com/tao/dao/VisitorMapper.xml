@@ -7,10 +7,19 @@
         insert into visitor (v_username,v_password) VALUES (#{username},#{password})
     </insert>
 
-    <select id="getByNameAndPass" resultType="com.tao.model.Visitor">
-        SELECT * from visitor where v_username=#{username} and v_pass=#{password}
+    <!--<select id="getByNameAndPass" resultMap="getVisitor">-->
+      <!--SELECT v_username from visitor where v_username=#{username} and v_password=#{password}-->
+    <!--</select>-->
+    <!--<resultMap id="getVisitor" type="Visitor">-->
+        <!--<id property="id" column="v_id"></id>-->
+        <!--<result property="username" column="v_username"/>-->
+        <!--<result property="password" column="v_password"/>-->
+    <!--</resultMap>-->
+    <select id="getByNameAndPass" resultType="Visitor">
+        SELECT v_id id,v_username username,v_password password from visitor
+        where v_username=#{username} and v_password=#{password}
     </select>
     <select id="getAllVisitor" resultType="com.tao.model.Visitor">
-        SELECT * from visitor;
+        SELECT v_id id,v_username username,v_password password from visitor;
     </select>
 </mapper>

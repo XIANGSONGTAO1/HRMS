@@ -18,11 +18,19 @@ public class VisitorController {
     @Resource
     private ResumeService resumeService;
     @RequestMapping("/visitorLogin")
-    public String visitorLogin(Visitor visitor,HttpSession session){
+    public String visitorLogin(HttpSession session,String identity,String username,String password){
+        System.out.println("到这了2");
+        System.out.println(identity);
+        Visitor visitor=new Visitor();
+        visitor.setUsername(username);
+        visitor.setPassword(password);
+        System.out.println(username);
+        System.out.println(password);
         Visitor visitor1=visitorService.getVisitorByNameAndPass(visitor);
+        System.out.println(visitor1);
         if (visitor1!=null){
             session.setAttribute("visitor",visitor1);
-            return "showRecruit";
+            return "forward:showRecruit";
         }else {
             return "redirect:../index.jsp";
         }
@@ -40,9 +48,5 @@ public class VisitorController {
             return "用户名不能为空";
         }
         return "";
-    }
-    @RequestMapping("/deliverResume")
-    public String deliverResume(){
-        resumeService
     }
 }

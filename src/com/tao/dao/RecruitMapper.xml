@@ -10,6 +10,11 @@
     <select id="getAllRecruit" resultType="com.tao.model.Recruit">
         SELECT * from recruit;
     </select>
+    <resultMap id="RecruitAndPositionAndDept" type="Recruit">
+        <id property="id" column="r_id"></id>
+        <result property="desc" column="r_desc"/>
+        <!--<association property="dept" -->
+    </resultMap>
     <select id="getOneRecruitById" resultType="com.tao.model.Recruit">
         SELECT * from recruit where id=#{id}
     </select>

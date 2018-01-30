@@ -17,7 +17,7 @@
 </head>
 <body>
 <div>
-    <form>
+    <form action="checkIdentity">
         用户名：<input name="username"><br>
         密码：<input name="password"><br>
         身份：游客：<input type="radio" name="identity" value="visitor">员工：<input type=radio name="identity" value="employee">

@@ -5,17 +5,15 @@ public class Recruit {
     private Dept dept;
     private Position position;
     private String desc;
-    private double salary;
 
     public Recruit() {
     }
 
-    public Recruit(int id, Dept dept, Position position, String desc, double salary) {
+    public Recruit(int id, Dept dept, Position position, String desc) {
         this.id = id;
         this.dept = dept;
         this.position = position;
         this.desc = desc;
-        this.salary = salary;
     }
 
     public int getId() {
@@ -50,14 +48,6 @@ public class Recruit {
         this.desc = desc;
     }
 
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
     @Override
     public String toString() {
         return "Recruit{" +
@@ -65,7 +55,6 @@ public class Recruit {
                 ", dept=" + dept +
                 ", position=" + position +
                 ", desc='" + desc + '\'' +
-                ", salary=" + salary +
                 '}';
     }
 }
