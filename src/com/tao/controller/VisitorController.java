@@ -19,7 +19,7 @@ public class VisitorController {
     private ResumeService resumeService;
     @RequestMapping("/visitorLogin")
     public String visitorLogin(HttpSession session,String identity,String username,String password){
-        System.out.println("到这了2");
+        System.out.println("??????2");
         System.out.println(identity);
         Visitor visitor=new Visitor();
         visitor.setUsername(username);
@@ -32,7 +32,8 @@ public class VisitorController {
             session.setAttribute("visitor",visitor1);
             return "forward:showRecruit";
         }else {
-            return "redirect:../index.jsp";
+            System.out.println("kkkk");
+            return "redirect:index.jsp";
         }
     }
     @RequestMapping("/checkName")
@@ -41,11 +42,11 @@ public class VisitorController {
         List<Visitor> visitors=visitorService.getAllVisitor();
         for (Visitor visitor1:visitors){
             if (visitor1.getUsername().equals(name)){
-                return "用户名已经存在";
+                return "????????????";
             }
         }
         if (name.equals("")){
-            return "用户名不能为空";
+            return "????????????";
         }
         return "";
     }

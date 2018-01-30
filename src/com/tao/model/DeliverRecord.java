@@ -7,7 +7,7 @@ public class DeliverRecord implements Serializable{
     private Recruit recruit;
     private Resume resume;
     private Visitor visitor;
-    private String dilivertime;
+    private String delivertime;
     private int status;
     private String interviewtime;
     private String interviewplace;
@@ -16,12 +16,12 @@ public class DeliverRecord implements Serializable{
     public DeliverRecord() {
     }
 
-    public DeliverRecord(int id, Recruit recruit, Resume resume, Visitor visitor, String dilivertime, int status, String interviewtime, String interviewplace, String worktime) {
+    public DeliverRecord(int id, Recruit recruit, Resume resume, Visitor visitor, String delivertime, int status, String interviewtime, String interviewplace, String worktime) {
         this.id = id;
         this.recruit = recruit;
         this.resume = resume;
         this.visitor = visitor;
-        this.dilivertime = dilivertime;
+        this.delivertime = delivertime;
         this.status = status;
         this.interviewtime = interviewtime;
         this.interviewplace = interviewplace;
@@ -61,11 +61,11 @@ public class DeliverRecord implements Serializable{
     }
 
     public String getDilivertime() {
-        return dilivertime;
+        return delivertime;
     }
 
     public void setDilivertime(String dilivertime) {
-        this.dilivertime = dilivertime;
+        this.delivertime = dilivertime;
     }
 
     public int getStatus() {
@@ -107,7 +107,7 @@ public class DeliverRecord implements Serializable{
                 ", recruit=" + recruit +
                 ", resume=" + resume +
                 ", visitor=" + visitor +
-                ", dilivertime='" + dilivertime + '\'' +
+                ", delivertime='" + delivertime + '\'' +
                 ", status=" + status +
                 ", interviewtime='" + interviewtime + '\'' +
                 ", interviewplace='" + interviewplace + '\'' +

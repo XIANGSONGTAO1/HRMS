@@ -5,11 +5,39 @@
 <mapper namespace="com.tao.dao.ResumeMapper">
 
     <insert id="addResume">
-        insert into resume (r_name,r_sex,r_age,r_educationlevel,r_school,r_major
-        r_nation,r_tel,r_jobintention,r_skills,r_workexperience,r_selfvaluation,r_email,r_staus)VALUES ()
+        insert into resume (r_name,r_sex,r_age,r_school,r_major
+        ,r_tel,r_jobintention,r_skills,r_workexperience,r_email,r_englishlevel,r_v_id)
+        VALUES (#{name},#{sex},#{age},#{school},#{major},#{tel},#{jobintention},#{skill},
+        #{workexperience},#{email},#{englishlevel},#{visitor.id})
     </insert>
     <select id="getAll" resultType="com.tao.model.Resume"></select>
-    <select id="getResumeByVid" resultType="com.tao.model.Resume">
-        select
+    <select id="getResumeByVid" resultMap="ResumeAndVisitor">
+        select * from visitor v,resume r
+        WHERE v_id=#{id,jdbcType=INTEGER}
+        and r.r_v_id=v.v_id
     </select>
+    <select id="getResumeById" resultMap="ResumeAndVisitor">
+        SELECT  * from resume r, visitor v
+        where r_id=#{id,jdbcType=INTEGER}
+        and r.r_v_id=v.v_id
+    </select>
+    <resultMap id="ResumeAndVisitor" type="Resume">
+        <id property="id" column="r_id"></id>
+        <result property="name" column="r_name"/>
+        <result property="sex" column="r_sex"/>
+        <result property="age" column="r_age"/>
+        <result property="email" column="r_email"/>
+        <result property="englishlevel" column="r_englishlevel"/>
+        <result property="jobintention" column="r_jobintention"/>
+        <result property="major" column="r_major"/>
+        <result property="school" column="r_school"/>
+        <result property="skill" column="r_skills"/>
+        <result property="tel" column="r_tel"/>
+        <result property="workexperience" column="r_workexperience"/>
+        <association property="visitor" column="r_v_id" javaType="Visitor">
+            <id property="id" column="v_id"/>
+            <result property="username" column="v_username"/>
+            <result property="password" column="v_password"/>
+        </association>
+    </resultMap>
 </mapper>

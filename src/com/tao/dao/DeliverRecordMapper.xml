@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.dao.DeliverRecordMapper">
+    <insert id="addDeliverRecord">
+        insert into deliverrecord
+        (dl_rc_id,dl_v_id,dl_rs_id,dl_status,dl_delivertime,dl_interviewtime,dl_interviewplace,dl_worktime)
+        VALUES (#{recruit.id},#{visitor.id},
+        #{resume.id},#{status},#{dilivertime},#{interviewtime},#{interviewplace},#{worktime})
+    </insert>
+    <select id="getNewDeliverRecord" resultMap="DeliverAndVisitorAndResumeAndRecruit">
+        select dl.dl_id,dl.dl_delivertime,dl.dl_status,v.v_id vid
+        ,rc.rc_id rc_id,rs.r_id,rs.r_name,rc.rc_dept,rc.rc_position
+        from deliverrecord dl,visitor v,recruit rc,resume rs
+        where dl.dl_status=0
+        and dl.dl_rc_id=rc.rc_id
+        and dl.dl_rs_id=rs.r_id
+        and dl.dl_v_id=v.v_id
+    </select>
+    <select id="getDeliverRecordById" resultMap="DeliverAndVisitorAndResumeAndRecruit">
+
+    </select>
+    <resultMap id="DeliverAndVisitorAndResumeAndRecruit" type="DeliverRecord">
+        <id property="id" column="dl_id"/>
+        <result property="delivertime" column="dl_delivertime"/>
+        <association property="visitor" column="dl_v_id" javaType="Visitor">
+            <id property="id" column="v_id"></id>
+            <result property="username" column="v_username"/>
+            <result property="password" column="v_password"/>
+        </association>
+        <association property="resume" column="dl_rs_id" javaType="Resume">
+            <id property="id" column="r_id"/>
+            <result property="name" column="r_name"/>
+            <result property="jobintention" column="r_jobintention"/>
+        </association>
+        <association property="recruit" column="dl_rc_id" javaType="Recruit">
+            <id property="id" column="rc_id"/>
+            <result property="dept" column="rc_dept"></result>
+            <result property="position" column="rc_position"/>
+        </association>
+    </resultMap>
+</mapper>

@@ -17,4 +17,12 @@ public class UtilController {
             return "forward:employeeLogin";
         }
     }
+    @RequestMapping("/adminLogin")
+    public String adminLogin(String username,String password){
+        if (username.equals("admin")&&password.equals("admin")){
+            return "adminLoginSuccess";
+        }
+        return "redirect:index.jsp";
+
+    }
 }

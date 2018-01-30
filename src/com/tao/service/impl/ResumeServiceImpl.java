@@ -20,4 +20,14 @@ public class ResumeServiceImpl implements ResumeService {
     public List<Resume> getAll() {
         return null;
     }
+
+    @Override
+    public List<Resume> getAllByVid(int v_id) {
+        return resumeMapper.getResumeByVid(v_id);
+    }
+
+    @Override
+    public Resume getResumeById(int id) {
+        return resumeMapper.getResumeById(id);
+    }
 }

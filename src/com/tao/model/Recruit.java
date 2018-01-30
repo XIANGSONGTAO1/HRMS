@@ -1,6 +1,8 @@
 package com.tao.model;
 
-public class Recruit {
+import java.io.Serializable;
+
+public class Recruit implements Serializable{
     private int id;
     private String dept;
     private String position;
