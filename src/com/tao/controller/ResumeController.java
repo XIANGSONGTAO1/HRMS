@@ -16,4 +16,8 @@ public class ResumeController {
         resumeService.addResume(resume);
         return "showRecruit";
     }
+    @RequestMapping("/chooseResume")
+    public String chooseResume(){
+        resumeService.getAll();
+    }
 }

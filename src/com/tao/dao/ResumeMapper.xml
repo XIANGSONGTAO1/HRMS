@@ -9,4 +9,7 @@
         r_nation,r_tel,r_jobintention,r_skills,r_workexperience,r_selfvaluation,r_email,r_staus)VALUES ()
     </insert>
     <select id="getAll" resultType="com.tao.model.Resume"></select>
+    <select id="getResumeByVid" resultType="com.tao.model.Resume">
+        select
+    </select>
 </mapper>

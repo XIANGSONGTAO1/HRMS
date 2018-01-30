@@ -17,13 +17,23 @@
     <title></title>
 </head>
 <body>
-    <table>
+    <table border="1">
+        <tr>
+            <td>招聘编号</td>
+            <td>部门</td>
+            <td>职位</td>
+            <td>描述</td>
+            <td>状态</td>
+            <td>投递简历</td>
+        </tr>
         <for:forEach items="${sessionScope.recruits}" var="r">
             <tr>
-                <td>${r.getDept().getName()}</td>
-                <td>${r.getPosition().getName()}</td>
-                <td>${r.getDesc()}</td>
-                <td>${r.getSalary()}</td>
+                <td>${r.getId()}</td>
+                <td>${r.getDept()}</td>
+                <td>${r.getPosition()}</td>
+                <td>${r.getDesc1()}</td>
+                <td>${r.getStatus()}</td>
+                <td><a href="chooseResume?rc_id=${r.getId()}">选择简历</a></td>
             </tr>
         </for:forEach>
     </table>

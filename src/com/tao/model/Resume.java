@@ -4,6 +4,13 @@ import java.io.Serializable;
 
 public class Resume implements Serializable {
     private int id;
+    private String name;
+    private String sex;
+    private int age;
+    private String school;
+    private String major;
+    private String natioin;
+    private String tel;
     private String jobintention;
     private String skill;
     private String englishlevel;
@@ -11,13 +18,20 @@ public class Resume implements Serializable {
     private String selfevaluation;
     private String email;
     private Visitor visitor;
-    private int status;
 
     public Resume() {
     }
 
-    public Resume(int id, String jobintention, String skill, String englishlevel, String workexperience, String selfevaluation, String email, Visitor visitor) {
+    public Resume(int id, String name, String sex, int age, String educationlevel, String school, String major, String natioin, String tel, String jobintention, String skill, String englishlevel, String workexperience, String selfevaluation, String email, Visitor visitor) {
         this.id = id;
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.educationlevel = educationlevel;
+        this.school = school;
+        this.major = major;
+        this.natioin = natioin;
+        this.tel = tel;
         this.jobintention = jobintention;
         this.skill = skill;
         this.englishlevel = englishlevel;
@@ -27,81 +41,5 @@ public class Resume implements Serializable {
         this.visitor = visitor;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getJobintention() {
-        return jobintention;
-    }
-
-    public void setJobintention(String jobintention) {
-        this.jobintention = jobintention;
-    }
-
-    public String getSkill() {
-        return skill;
-    }
-
-    public void setSkill(String skill) {
-        this.skill = skill;
-    }
-
-    public String getEnglishlevel() {
-        return englishlevel;
-    }
-
-    public void setEnglishlevel(String englishlevel) {
-        this.englishlevel = englishlevel;
-    }
-
-    public String getWorkexperience() {
-        return workexperience;
-    }
-
-    public void setWorkexperience(String workexperience) {
-        this.workexperience = workexperience;
-    }
-
-    public String getSelfevaluation() {
-        return selfevaluation;
-    }
-
-    public void setSelfevaluation(String selfevaluation) {
-        this.selfevaluation = selfevaluation;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Visitor getVisitor() {
-        return visitor;
-    }
-
-    public void setVisitor(Visitor visitor) {
-        this.visitor = visitor;
-    }
-
-    @Override
-    public String toString() {
-        return "Resume{" +
-                "id=" + id +
-                ", jobintention='" + jobintention + '\'' +
-                ", skill='" + skill + '\'' +
-                ", englishlevel='" + englishlevel + '\'' +
-                ", workexperience='" + workexperience + '\'' +
-                ", selfevaluation='" + selfevaluation + '\'' +
-                ", email='" + email + '\'' +
-                ", visitor=" + visitor +
-                '}';
-    }
 }

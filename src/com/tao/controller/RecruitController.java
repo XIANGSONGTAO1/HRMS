@@ -28,6 +28,7 @@ public class RecruitController {
     @RequestMapping("/showRecruit")
     public String showRecruit(HttpSession session){
         List<Recruit> recruits=recruitService.getAll();
+        System.out.println(recruits);
         session.setAttribute("recruits",recruits);
         return "showRecruits";
     }
@@ -35,9 +36,15 @@ public class RecruitController {
     @RequestMapping("/showPublishRecruit")
     public ModelAndView showPublishRecruit(Model model, HttpServletRequest request){
         ModelAndView modelAndView=new ModelAndView();
-        List<Dept> depts=deptService.getAllDept();
-        modelAndView.addObject("depts",depts);
-        modelAndView.setViewName("publishRecruit");
+//        List<Dept> depts=deptService.getAllDept();
+//        modelAndView.addObject("depts",depts);
+//        modelAndView.setViewName("publishRecruit");
+
+        List<Recruit> recruits=recruitService.getAll();
+        System.out.println(recruits);
+
+
+
         return modelAndView;
     }
 }

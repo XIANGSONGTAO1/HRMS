@@ -8,11 +8,13 @@
     </delete>
 
     <select id="getAllRecruit" resultType="com.tao.model.Recruit">
-        SELECT * from recruit;
+        SELECT rc_id id,rc_dept dept,rc_position position ,rc_status status,rc_desc desc1
+        from recruit
+        where rc_status=0
     </select>
     <resultMap id="RecruitAndPositionAndDept" type="Recruit">
         <id property="id" column="r_id"></id>
-        <result property="desc" column="r_desc"/>
+        <result property="desc1" column="r_desc"/>
         <!--<association property="dept" -->
     </resultMap>
     <select id="getOneRecruitById" resultType="com.tao.model.Recruit">
