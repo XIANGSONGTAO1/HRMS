@@ -20,10 +20,10 @@
     <form action="checkIdentity">
         用户名：<input name="username"><br>
         密码：<input name="password"><br>
-        身份：游客：<input type="radio" name="identity" value="visitor">员工：<input type=radio name="identity" value="employee">
+        身份：游客：<input type="radio" name="identity" value="visitor" checked="checked">员工：<input type=radio name="identity" value="employee">
                     管理员：<input type="radio" type="radio" name="identity" value="admin"><br>
         <input type="submit" value="登录"><input type="reset"><br>
-        <a href="WEB-INF/pages/visitorRegist.jsp">游客注册</a>
+        <a href="forVisitorRegist">游客注册</a>
     </form>
 </div>
 </body>

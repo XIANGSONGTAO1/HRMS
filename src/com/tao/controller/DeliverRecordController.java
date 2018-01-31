@@ -64,7 +64,37 @@ public class DeliverRecordController {
         deliverRecord.setInterviewplace(interviewPlace);
         deliverRecordService.updateDeliverRecord(deliverRecord);
         System.out.println(deliverRecord);
-        return "";
+        return "adminLoginSuccess";
     }
-
+    @RequestMapping("/dontSendInvitation")
+    public String dontSendInvitation(String dlId){
+        int dlId1= Integer.parseInt(dlId);
+        DeliverRecord deliverRecord=deliverRecordService.getDeliverById(dlId1);
+        deliverRecord.setStatus(-1);
+        return "forward:showNewDeliverRecord";
+    }
+    @RequestMapping("/beginInterview")
+    public String beginInterview(Model model){
+        System.out.println("µ½beginInterview");
+        List<DeliverRecord> deliverRecords=deliverRecordService.getInterviewDelivers();
+        model.addAttribute("bi",deliverRecords);
+        return "showDeliverRecordsInterview";
+    }
+    @RequestMapping("/refuseHire")
+    public String refuseHire(String dlId){
+        int dlId1= Integer.parseInt(dlId);
+        DeliverRecord deliverRecord=deliverRecordService.getDeliverById(dlId1);
+        deliverRecord.setStatus(-2);
+        deliverRecordService.updateDeliverRecord(deliverRecord);
+        return "forward:beginInterview";
+    }
+    @RequestMapping("/showSelfDeliverRecord")
+    public String showSelfDeliverRecord(HttpSession session,Model model){
+        Visitor visitor= (Visitor) session.getAttribute("visitor");
+        System.out.println("µ½showSelfDeliverRecord");
+        System.out.println(visitor);
+        List<DeliverRecord> deliverRecords=deliverRecordService.getSelfDeliverRecord(visitor.getId());
+        model.addAttribute("dr",deliverRecords);
+        return "showSelfDeliverRecord";
+    }
 }

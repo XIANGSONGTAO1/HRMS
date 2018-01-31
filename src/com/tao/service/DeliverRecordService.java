@@ -10,4 +10,6 @@ public interface DeliverRecordService {
     List<DeliverRecord> getNewDeliverRecord();
     DeliverRecord getDeliverById(int id);
     boolean updateDeliverRecord(DeliverRecord deliverRecord);
+    List<DeliverRecord> getInterviewDelivers();
+    List<DeliverRecord> getSelfDeliverRecord(int vid);
 }

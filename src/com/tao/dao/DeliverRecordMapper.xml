@@ -31,6 +31,20 @@
         and dl.dl_rs_id=rs.r_id
         and dl.dl_v_id=v.v_id
     </select>
+    <select id="getDeliversInterview" resultMap="DeliverAndVisitorAndResumeAndRecruit">
+        SELECT * from deliverrecord dl,visitor v,recruit rc,resume rs
+        where dl.dl_status=1
+        and dl.dl_rc_id=rc.rc_id
+        and dl.dl_rs_id=rs.r_id
+        and dl.dl_v_id=v.v_id
+    </select>
+    <select id="getSelfDeliverRecords" resultMap="DeliverAndVisitorAndResumeAndRecruit">
+         SELECT * from deliverrecord dl,visitor v,recruit rc,resume rs
+        where v.v_id=${value}
+        and dl.dl_rc_id=rc.rc_id
+        and dl.dl_rs_id=rs.r_id
+        and dl.dl_v_id=v.v_id
+    </select>
     <resultMap id="DeliverAndVisitorAndResumeAndRecruit" type="DeliverRecord">
         <id property="id" column="dl_id"/>
         <result property="delivertime" column="dl_delivertime"/>

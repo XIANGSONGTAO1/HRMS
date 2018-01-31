@@ -9,4 +9,6 @@ public interface DeliverRecordMapper {
     List<DeliverRecord> getNewDeliverRecord();
     DeliverRecord getDeliverRecordById(int id);
     boolean updateDeliverRecord(DeliverRecord deliverRecord);
+    List<DeliverRecord> getDeliversInterview();
+    List<DeliverRecord> getSelfDeliverRecords(int vid);
 }

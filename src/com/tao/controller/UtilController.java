@@ -23,6 +23,9 @@ public class UtilController {
             return "adminLoginSuccess";
         }
         return "redirect:index.jsp";
-
+    }
+    @RequestMapping("/forAddRecruit")
+    public String forAddRecruit(){
+        return "addRecruit";
     }
 }

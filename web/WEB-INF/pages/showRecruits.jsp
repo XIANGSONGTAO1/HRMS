@@ -18,6 +18,7 @@
 </head>
 <body>
 <a href="forAddResume">添加简历</a>
+<a href="showSelfDeliverRecord">查看投递记录</a>
     <table border="1">
         <tr>
             <td>招聘编号</td>

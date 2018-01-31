@@ -5,6 +5,7 @@ import com.tao.service.ResumeService;
 import com.tao.service.VisitorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -36,18 +37,37 @@ public class VisitorController {
             return "redirect:index.jsp";
         }
     }
-    @RequestMapping("/checkName")
+    @RequestMapping(value="/checkName",method = RequestMethod.POST)
     public @ResponseBody String checkName(String name){
+        System.out.println("到checkName");
+        System.out.println(name);
         Visitor visitor=new Visitor();
         List<Visitor> visitors=visitorService.getAllVisitor();
         for (Visitor visitor1:visitors){
             if (visitor1.getUsername().equals(name)){
-                return "????????????";
+                System.out.println("dskafjldskf");
+                return "用户名已存在";
             }
         }
-        if (name.equals("")){
-            return "????????????";
+        if (name.equals("")||name==null){
+            return "用户名不能为空";
+        }
+        if(name.contains(" ")){
+            return "用户名不能包含空格";
         }
         return "";
+
+    }
+    @RequestMapping("/forVisitorRegist")
+    public String forVisitorRegist(){
+        return "visitorRegist";
+    }
+    @RequestMapping("/visitorRegist")
+    public String visitorRegist(String username,String password){
+        Visitor visitor=new Visitor();
+        visitor.setUsername(username);
+        visitor.setPassword(password);
+        visitorService.addVisitor(visitor);
+        return "redirect:index.jsp";
     }
 }

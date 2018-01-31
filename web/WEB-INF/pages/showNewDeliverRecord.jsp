@@ -26,6 +26,7 @@
             <td>应聘的岗位</td>
             <td>简历</td>
             <td>发送面试邀请</td>
+            <td>拒绝面试</td>
         </tr>
         <c:forEach items="${dl}" var="dl">
            <tr>
@@ -40,6 +41,7 @@
                    <input type="hidden" name="dlId" value="${dl.id}">
                    <input type="submit" value="发送邀请">
                </form></td>
+               <td><a href="dontSendInvitation?dlId=${dl.id}">拒绝发送面试邀请</a></td>
            </tr>
         </c:forEach>
     </table>

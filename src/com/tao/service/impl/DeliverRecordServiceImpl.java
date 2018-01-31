@@ -31,4 +31,14 @@ public class DeliverRecordServiceImpl implements DeliverRecordService {
     public boolean updateDeliverRecord(DeliverRecord deliverRecord) {
         return deliverRecordMapper.updateDeliverRecord(deliverRecord);
     }
+
+    @Override
+    public List<DeliverRecord> getInterviewDelivers() {
+        return deliverRecordMapper.getDeliversInterview();
+    }
+
+    @Override
+    public List<DeliverRecord> getSelfDeliverRecord(int vid) {
+        return deliverRecordMapper.getSelfDeliverRecords(vid);
+    }
 }
