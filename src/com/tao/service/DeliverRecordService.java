@@ -8,4 +8,6 @@ import java.util.List;
 public interface DeliverRecordService {
     boolean addDeliverRecord(DeliverRecord deliverRecord);
     List<DeliverRecord> getNewDeliverRecord();
+    DeliverRecord getDeliverById(int id);
+    boolean updateDeliverRecord(DeliverRecord deliverRecord);
 }

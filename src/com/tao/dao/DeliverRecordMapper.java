@@ -8,4 +8,5 @@ public interface DeliverRecordMapper {
     boolean addDeliverRecord(DeliverRecord deliverRecord);
     List<DeliverRecord> getNewDeliverRecord();
     DeliverRecord getDeliverRecordById(int id);
+    boolean updateDeliverRecord(DeliverRecord deliverRecord);
 }

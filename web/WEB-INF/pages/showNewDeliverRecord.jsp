@@ -36,7 +36,7 @@
                <td>${dl.recruit.position}</td>
                <td><a href="showResumeById?resumeId=${dl.resume.id}">查看简历</a></td>
                <td><form action="interviewInvitation">
-                   输入面试时间：<input name="interviewTime">
+                   输入面试时间：<input name="interviewTime">输入面试地点：<input name="interviewPlace">
                    <input type="hidden" name="dlId" value="${dl.id}">
                    <input type="submit" value="发送邀请">
                </form></td>

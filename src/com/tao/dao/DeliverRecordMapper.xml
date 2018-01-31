@@ -9,21 +9,35 @@
         VALUES (#{recruit.id},#{visitor.id},
         #{resume.id},#{status},#{dilivertime},#{interviewtime},#{interviewplace},#{worktime})
     </insert>
+    <update id="updateDeliverRecord">
+        update deliverrecord SET dl_id=#{id},dl_v_id=#{visitor.id},dl_rs_id=#{resume.id}
+        ,dl_delivertime=#{delivertime},dl_interviewtime=#{interviewtime}
+        ,dl_interviewplace=#{interviewplace},dl_worktime=#{worktime},dl_status=#{status}
+        where dl_id=#{id}
+    </update>
     <select id="getNewDeliverRecord" resultMap="DeliverAndVisitorAndResumeAndRecruit">
-        select dl.dl_id,dl.dl_delivertime,dl.dl_status,v.v_id vid
-        ,rc.rc_id rc_id,rs.r_id,rs.r_name,rc.rc_dept,rc.rc_position
+        select dl.dl_id,dl.dl_delivertime,dl.dl_status,v.v_id,
+        rc.rc_id rc_id,rs.r_id,rs.r_name,rc.rc_dept,rc.rc_position
         from deliverrecord dl,visitor v,recruit rc,resume rs
         where dl.dl_status=0
         and dl.dl_rc_id=rc.rc_id
         and dl.dl_rs_id=rs.r_id
         and dl.dl_v_id=v.v_id
     </select>
-    <select id="getDeliverRecordById" resultMap="DeliverAndVisitorAndResumeAndRecruit">
-
+    <select id="getDeliverRecordById" parameterType="int" resultMap="DeliverAndVisitorAndResumeAndRecruit">
+        SELECT * from deliverrecord dl,visitor v,recruit rc,resume rs
+        where dl.dl_id=${value}
+        and dl.dl_rc_id=rc.rc_id
+        and dl.dl_rs_id=rs.r_id
+        and dl.dl_v_id=v.v_id
     </select>
     <resultMap id="DeliverAndVisitorAndResumeAndRecruit" type="DeliverRecord">
         <id property="id" column="dl_id"/>
         <result property="delivertime" column="dl_delivertime"/>
+        <result property="interviewtime" column="dl_interviewtime"/>
+        <result property="interviewplace" column="dl_interviewplace"/>
+        <result property="status" column="dl_status"/>
+        <result property="worktime" column="dl_worktime"/>
         <association property="visitor" column="dl_v_id" javaType="Visitor">
             <id property="id" column="v_id"></id>
             <result property="username" column="v_username"/>

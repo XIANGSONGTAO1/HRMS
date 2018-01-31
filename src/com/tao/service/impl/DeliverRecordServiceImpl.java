@@ -21,4 +21,14 @@ public class DeliverRecordServiceImpl implements DeliverRecordService {
     public List<DeliverRecord> getNewDeliverRecord() {
         return deliverRecordMapper.getNewDeliverRecord();
     }
+
+    @Override
+    public DeliverRecord getDeliverById(int id) {
+        return deliverRecordMapper.getDeliverRecordById(id);
+    }
+
+    @Override
+    public boolean updateDeliverRecord(DeliverRecord deliverRecord) {
+        return deliverRecordMapper.updateDeliverRecord(deliverRecord);
+    }
 }

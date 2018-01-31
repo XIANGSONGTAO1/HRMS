@@ -5,6 +5,7 @@ import com.tao.model.Recruit;
 import com.tao.model.Resume;
 import com.tao.model.Visitor;
 import com.tao.service.DeliverRecordService;
+import org.junit.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,6 @@ import javax.xml.crypto.Data;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
 @Controller
 public class DeliverRecordController {
     @Resource
@@ -53,9 +53,18 @@ public class DeliverRecordController {
         return "showNewDeliverRecord";
     }
     @RequestMapping("/interviewInvitation")
-    public String interviewInvitation(String dlId,String interviewTime){
+    public String interviewInvitation(String dlId,String interviewTime,String interviewPlace){
+        System.out.println("µ½interviewInvitation");
         int dlId1= Integer.parseInt(dlId);
-        deliverRecordService.
-
+        System.out.println(dlId1);
+        //deliverRecordService
+        DeliverRecord deliverRecord=deliverRecordService.getDeliverById(dlId1);
+        deliverRecord.setStatus(1);
+        deliverRecord.setInterviewtime(interviewTime);
+        deliverRecord.setInterviewplace(interviewPlace);
+        deliverRecordService.updateDeliverRecord(deliverRecord);
+        System.out.println(deliverRecord);
+        return "";
     }
+
 }

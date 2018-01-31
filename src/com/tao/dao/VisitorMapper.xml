@@ -22,4 +22,7 @@
     <select id="getAllVisitor" resultType="com.tao.model.Visitor">
         SELECT v_id id,v_username username,v_password password from visitor;
     </select>
+    <select id="getVisitorById" resultType="com.tao.model.Visitor">
+        select * from visitor where id=#{id}
+    </select>
 </mapper>
