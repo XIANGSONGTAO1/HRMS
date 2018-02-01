@@ -6,5 +6,5 @@ import com.tao.model.Position;
 import java.util.List;
 
 public interface PositionService {
-    List<Position> getAllByDid(Dept dept);
+    List<Position> getAllByDid(int did);
 }

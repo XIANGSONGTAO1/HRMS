@@ -6,12 +6,16 @@
     <delete id="delete"></delete>
 
     <select id="getAll" resultType="Dept">
-      select d_id id,d_name name from dept
+      select d_id id,d_name name from dept d
     </select>
     <resultMap id="DeptAndPosition" type="Dept">
         <id property="id" column="d_id"></id>
         <result property="name" column="d_name"/>
-        <collection property="positions" ofType="Position"></collection>
+        <collection property="positions" ofType="Position">
+            <id property="id" column="p_id"></id>
+            <result property="name" column="p_name"/>
+            <result property="salary" column="p_salary"/>
+        </collection>
     </resultMap>
     <select id="getById" resultType="com.tao.model.Dept"></select>
 </mapper>

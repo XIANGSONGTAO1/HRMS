@@ -13,7 +13,7 @@ public class PositionServiceImpl implements PositionService {
     @Resource
     private PositionMapper positionMapper;
     @Override
-    public List<Position> getAllByDid(Dept dept) {
-        return positionMapper.getAllByDid(dept);
+    public List<Position> getAllByDid(int did) {
+        return positionMapper.getAllByDid(did);
     }
 }

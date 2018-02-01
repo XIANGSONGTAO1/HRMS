@@ -4,7 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tao.dao.PositionMapper">
 
-    <select id="getAllByDid" resultType="com.tao.model.Position">
-        select p_id id,p_name p_name,p_salary salary ,d_id d_id where d_id=#{dept.id}
+    <select id="getAllByDid" resultMap="PositionAndDept">
+        select p.p_id,p.p_name,p.p_salary,d.d_id,d.d_name from position p,dept d
+        where d.d_id=#{did}
+        and p.p_d_id=d.d_id
     </select>
+    <resultMap id="PositionAndDept" type="Position">
+        <id property="id" column="p_id"/>
+        <result property="name" column="p_name"/>
+        <result property="salary" column="p_salary"/>
+        <association property="dept" column="p_d_id" javaType="Dept">
+            <id property="id" column="d_id"/>
+            <result property="name" column="d_name"/>
+        </association>
+    </resultMap>
 </mapper>

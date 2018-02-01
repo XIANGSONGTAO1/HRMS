@@ -19,15 +19,21 @@
     <script>
         $(function () {
             $("#dept").change(function () {
-                alert("kaka")
-                var d=$(this).value
+                var d=$(this).val()
+                alert(d)
                 $.ajax({
                     url:"getPositionByDept",
-                    data:d,
-                    datatype:'json',
-                    success:function (data) {
+                    data:{"d":d},
+                    javaType:"json",
+                    success:function (positions) {
                         $("#position").empty()
-
+                        var p=eval(positions)
+                        alert(JSON.stringify(p))
+                        var str="";
+                        $.each(positions,function (index,value) {
+                            str+="<option value="+value.id+">"+value.name+"</option>"
+                        })
+                        $("#position").append(str)
                     }
                 })
             })
@@ -36,12 +42,13 @@
 </head>
 <body>
     部门：<select id="dept">
+        <option value="0">请选择</option>
         <c:forEach items="${depts}" var="dp">
-            <option value="${dp.id}">${dp.getName()}</option>
+            <option value="${dp.getId()}">${dp.getName()}</option>
         </c:forEach>
     </select><br>
     职位：<select id="position">
-
+        <option value="0">请选择</option>
     </select>
 </body>
 </html>
