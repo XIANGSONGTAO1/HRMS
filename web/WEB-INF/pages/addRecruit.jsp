@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -14,8 +15,33 @@
 <head>
     <base href="<%=basePath%>"/>
     <title></title>
+    <script src="js/jquery-3.1.0.js"></script>
+    <script>
+        $(function () {
+            $("#dept").change(function () {
+                alert("kaka")
+                var d=$(this).value
+                $.ajax({
+                    url:"getPositionByDept",
+                    data:d,
+                    datatype:'json',
+                    success:function (data) {
+                        $("#position").empty()
+
+                    }
+                })
+            })
+        })
+    </script>
 </head>
 <body>
+    部门：<select id="dept">
+        <c:forEach items="${depts}" var="dp">
+            <option value="${dp.id}">${dp.getName()}</option>
+        </c:forEach>
+    </select><br>
+    职位：<select id="position">
 
+    </select>
 </body>
 </html>

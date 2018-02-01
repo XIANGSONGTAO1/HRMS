@@ -5,11 +5,8 @@
 <mapper namespace="com.tao.dao.DeptMapper">
     <delete id="delete"></delete>
 
-    <select id="getAll" resultMap="DeptAndPosition">
-        select d.d_id d_id,d.d_name d_name,p.p_name,p.p_id,p.p_salary
-         from dept d,position p
-        where p.d_id=d.id
-        and d.d_id=#{id}
+    <select id="getAll" resultType="Dept">
+      select d_id id,d_name name from dept
     </select>
     <resultMap id="DeptAndPosition" type="Dept">
         <id property="id" column="d_id"></id>

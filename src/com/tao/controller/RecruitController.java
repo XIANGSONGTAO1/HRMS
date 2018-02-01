@@ -39,12 +39,9 @@ public class RecruitController {
 //        List<Dept> depts=deptService.getAllDept();
 //        modelAndView.addObject("depts",depts);
 //        modelAndView.setViewName("publishRecruit");
-
         List<Recruit> recruits=recruitService.getAll();
         System.out.println(recruits);
-
-
-
         return modelAndView;
     }
+
 }
