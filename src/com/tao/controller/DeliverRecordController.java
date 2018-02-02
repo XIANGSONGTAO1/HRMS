@@ -5,6 +5,7 @@ import com.tao.model.Recruit;
 import com.tao.model.Resume;
 import com.tao.model.Visitor;
 import com.tao.service.DeliverRecordService;
+import com.tao.service.DeptService;
 import org.junit.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,8 @@ import java.util.List;
 public class DeliverRecordController {
     @Resource
     private DeliverRecordService deliverRecordService;
+    @Resource
+    private DeptService deptService;
     @RequestMapping("/deliverResume")
     public String deliverResume(int resumeId,HttpSession session){
         System.out.println("µ½deliverresume");
@@ -78,6 +81,9 @@ public class DeliverRecordController {
         System.out.println("µ½beginInterview");
         List<DeliverRecord> deliverRecords=deliverRecordService.getInterviewDelivers();
         model.addAttribute("bi",deliverRecords);
+        System.out.println(deliverRecords);
+        model.addAttribute("depts",deptService.getAllDept());
+        System.out.println(deptService.getAllDept());
         return "showDeliverRecordsInterview";
     }
     @RequestMapping("/refuseHire")

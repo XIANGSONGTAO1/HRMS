@@ -8,8 +8,28 @@ public class Employee implements Serializable{
     private String password;
     private String truename;
     private double salary;
+    private int age;
+    private String sex;
+    private int status;
+    private int positionId;
+    private String email;
+    private String tel;
 
     public Employee() {
+    }
+
+    public Employee(String tel,String email,int positionId,int id, String username, String password, String truename, double salary, int age, String sex, int status) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.truename = truename;
+        this.salary = salary;
+        this.age = age;
+        this.sex = sex;
+        this.status = status;
+        this.positionId=positionId;
+        this.email=email;
+        this.tel=tel;
     }
 
     public int getId() {
@@ -52,13 +72,52 @@ public class Employee implements Serializable{
         this.salary = salary;
     }
 
-    public Employee(int id, String username, String password, String truename, double salary) {
+    public int getAge() {
+        return age;
+    }
 
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.truename = truename;
-        this.salary = salary;
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(int positionId) {
+        this.positionId = positionId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     @Override
@@ -69,6 +128,12 @@ public class Employee implements Serializable{
                 ", password='" + password + '\'' +
                 ", truename='" + truename + '\'' +
                 ", salary=" + salary +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", status=" + status +
+                ", positionId=" + positionId +
+                ", email='" + email + '\'' +
+                ", tel='" + tel + '\'' +
                 '}';
     }
 }

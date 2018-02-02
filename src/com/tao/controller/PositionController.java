@@ -15,7 +15,6 @@ public class PositionController {
     @Resource
     private PositionService positionService;
     @RequestMapping("/getPositionByDept")
-
     public @ResponseBody List<Position> getPositionByDept(int d){
         System.out.println("µ½getPositionByDept");
         Dept dept=new Dept();

@@ -69,17 +69,23 @@
                 <td>${bi.interviewtime}</td>
                 <td>${bi.interviewplace}</td>
                 <td>
-                    <form>
-                        部门：<select id="dept">
+                    <form action="addEmployee">
+                        部门：<select id="dept" name="deptId">
                         <option value="0">请选择</option>
                         <c:forEach items="${depts}" var="dp">
                             <option value="${dp.getId()}">${dp.getName()}</option>
                         </c:forEach>
                     </select>
-                        职位：<select id="position">
+                        职位：<select id="position" name="positionId">
                         <option value="0">请选择</option>
                     </select>
+                        <input type="hidden" name="email" value="${bi.resume.email}">
+                        <input type="hidden" name="tel" value="${bi.resume.tel}">
                         <input type="hidden" name="trueName" value="${bi.resume.name}">
+                        <input type="hidden" name="sex" value="${bi.resume.sex}">
+                        <input type="hidden" name="age" value="${bi.resume.age}">
+                        <input type="hidden" name="userName" value="${bi.visitor.username}">
+                        <input type="hidden" name="password" value="${bi.visitor.password}">
                         <input type="submit" value="录用">
                     </form>
                 </td>
