@@ -42,6 +42,7 @@
                 var d1=$("#dept").val()
                 var p1=$("#position").val()
                 $.ajax({
+
                 })
             })
         })
@@ -68,16 +69,19 @@
                 <td>${bi.interviewtime}</td>
                 <td>${bi.interviewplace}</td>
                 <td>
-                    部门：<select id="dept">
-                    <option value="0">请选择</option>
-                    <c:forEach items="${depts}" var="dp">
-                        <option value="${dp.getId()}">${dp.getName()}</option>
-                    </c:forEach>
-                </select>
-                    职位：<select id="position">
-                    <option value="0">请选择</option>
-                </select>
-                    <button id="bt">录用</button>
+                    <form>
+                        部门：<select id="dept">
+                        <option value="0">请选择</option>
+                        <c:forEach items="${depts}" var="dp">
+                            <option value="${dp.getId()}">${dp.getName()}</option>
+                        </c:forEach>
+                    </select>
+                        职位：<select id="position">
+                        <option value="0">请选择</option>
+                    </select>
+                        <input type="hidden" name="trueName" value="${bi.resume.name}">
+                        <input type="submit" value="录用">
+                    </form>
                 </td>
                 <td><a href="refuseHire?dlId=${bi.id}">拒绝录用</a></td>
             </tr>
