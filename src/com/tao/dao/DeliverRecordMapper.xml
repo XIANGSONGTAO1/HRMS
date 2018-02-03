@@ -60,6 +60,12 @@
         <association property="resume" column="dl_rs_id" javaType="Resume">
             <id property="id" column="r_id"/>
             <result property="name" column="r_name"/>
+            <result property="sex" column="r_sex"/>
+            <result property="age" column="r_age"/>
+            <result property="school" column="r_school"/>
+            <result property="major" column="r_major"/>
+            <result property="tel" column="r_tel"/>
+            <result property="email" column="r_email"/>
             <result property="jobintention" column="r_jobintention"/>
         </association>
         <association property="recruit" column="dl_rc_id" javaType="Recruit">

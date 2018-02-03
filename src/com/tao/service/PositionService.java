@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PositionService {
     List<Position> getAllByDid(int did);
+    Position getById(int id);
 }

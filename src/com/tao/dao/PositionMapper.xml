@@ -9,6 +9,11 @@
         where d.d_id=#{did}
         and p.p_d_id=d.d_id
     </select>
+    <select id="getById" resultMap="PositionAndDept">
+        select p.p_id,p.p_name,p.p_salary,d.d_id,d.d_name from position p,dept d
+        where p.p_id=#{id}
+        and p.p_d_id=d.d_id
+    </select>
     <resultMap id="PositionAndDept" type="Position">
         <id property="id" column="p_id"/>
         <result property="name" column="p_name"/>

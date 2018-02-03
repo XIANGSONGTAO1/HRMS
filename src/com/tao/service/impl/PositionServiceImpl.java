@@ -16,4 +16,9 @@ public class PositionServiceImpl implements PositionService {
     public List<Position> getAllByDid(int did) {
         return positionMapper.getAllByDid(did);
     }
+
+    @Override
+    public Position getById(int id) {
+        return positionMapper.getById(id);
+    }
 }
