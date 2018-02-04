@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class EmployeeController {
@@ -25,7 +26,7 @@ public class EmployeeController {
         employee.setSalary(position.getSalary()*0.5);
         employee.setTruename(trueName);
         employee.setUsername(userName);
-        employee.setPositionId(positionId);
+        employee.setPosition(position);
         employee.setSex(sex);
         employee.setAge(age);
         employee.setStatus(0);
@@ -35,7 +36,11 @@ public class EmployeeController {
         return "";
     }
     @RequestMapping("/employeeLogin")
-    public String employeeLogin(String username,String password){
-
+    public String employeeLogin(Employee employee, HttpSession session){
+        Employee employee1=employeeService.getEmployeeByNameAndPassword(employee);
+        if (employee1!=null){
+            session.setAttribute("employee",employee1);
+        }
+        return "redirect:index.jsp";
     }
 }

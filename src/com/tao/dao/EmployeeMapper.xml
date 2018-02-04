@@ -7,7 +7,7 @@
     <insert id="addEmployee">
         insert into employee (e_username,e_password,e_truename,e_salary,e_age,e_sex,
         e_status,e_p_id,e_email,e_tel)
-        VALUE (#{username},#{password},#{truename},#{salary},#{age},#{sex},#{status},#{positionId}
+        VALUE (#{username},#{password},#{truename},#{salary},#{age},#{sex},#{status},#{position}
         ,#{email},#{tel})
     </insert>
     <select id="getEmployeeByUserNameAndPassword" resultMap="Employee">
@@ -17,7 +17,7 @@
         <id property="id" column="e_id"/>
         <result property="tel" column="e_tel"/>
         <result property="email" column="e_email"/>
-        <result property="positionId" column="e_p_id"/>
+        <result property="position" column="e_p_id"/>
         <result property="status" column="e_status"/>
         <result property="sex" column="e_sex"/>
         <result property="age" column="e_age"/>

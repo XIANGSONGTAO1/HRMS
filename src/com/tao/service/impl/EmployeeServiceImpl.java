@@ -15,4 +15,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public boolean addEmployee(Employee employee) {
         return employeeMapper.addEmployee(employee);
     }
+
+    @Override
+    public Employee getEmployeeByNameAndPassword(Employee employee) {
+        return employeeMapper.getEmployeeByUserNameAndPassword(employee);
+    }
 }

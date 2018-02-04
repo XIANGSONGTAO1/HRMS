@@ -11,14 +11,14 @@ public class Employee implements Serializable{
     private int age;
     private String sex;
     private int status;
-    private int positionId;
+    private Position position;
     private String email;
     private String tel;
 
     public Employee() {
     }
 
-    public Employee(String tel,String email,int positionId,int id, String username, String password, String truename, double salary, int age, String sex, int status) {
+    public Employee(String tel,String email,Position position,int id, String username, String password, String truename, double salary, int age, String sex, int status) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -27,7 +27,7 @@ public class Employee implements Serializable{
         this.age = age;
         this.sex = sex;
         this.status = status;
-        this.positionId=positionId;
+        this.position=position;
         this.email=email;
         this.tel=tel;
     }
@@ -96,12 +96,12 @@ public class Employee implements Serializable{
         this.status = status;
     }
 
-    public int getPositionId() {
-        return positionId;
+    public Position getPosition() {
+        return position;
     }
 
-    public void setPositionId(int positionId) {
-        this.positionId = positionId;
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     public String getEmail() {
@@ -131,7 +131,7 @@ public class Employee implements Serializable{
                 ", age=" + age +
                 ", sex='" + sex + '\'' +
                 ", status=" + status +
-                ", positionId=" + positionId +
+                ", position=" + position +
                 ", email='" + email + '\'' +
                 ", tel='" + tel + '\'' +
                 '}';
